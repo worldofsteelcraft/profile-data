@@ -1,0 +1,21 @@
+{
+  "name": "wosc-profile-api-server",
+  "version": "1.0.0",
+  "description": "The Profiles API Server of WoSC Members.",
+  "main": ".",
+  "scripts": {
+    "build-data": "jq -s 'add' ./data/*.json > ./dist/api/index.json",
+    "build-data-public": "jq -s 'map(map(del(.realName))) | add' ./data/*.json > ./dist/api/index.json",
+    "setup-env": "mkdir -p ./dist/api",
+    "build": "npm run setup-env && npm run build-data",
+    "build-public": "npm run setup-env && npm run build-data"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "dplayz",
+  "license": "",
+  "dependencies": {
+    "node-jq": "^4.0.0"
+  }
+}

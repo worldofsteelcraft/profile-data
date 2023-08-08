@@ -1,0 +1,16 @@
+[
+    {
+        "id": "4",
+        "username": "Zynlist",
+        "position": "moderator",
+        "active": true,
+        "quote": null,
+        "joinInfo": {
+            "joinDate": null,
+            "joinSeason": "Post Season 5"
+        },
+        "badges": ["veteran"],
+        "alias": ["Creeper - formerly"],
+        "previousUsernames": ["CreeperVxbes"]
+    }
+]

@@ -1,8 +1,6 @@
 name: Publish to Github Pages
 'on':
   push:
-    branches:
-    - main
     tags:
       - '*.*.*'
   workflow_dispatch:
@@ -40,12 +38,10 @@ jobs:
       # Build fonts and assets
       - run: npm run build-public
         
-
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: ./dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
